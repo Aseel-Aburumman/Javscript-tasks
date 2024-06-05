@@ -7,120 +7,139 @@
   </head>
   <body>
     <script>
+      const first_array = [30, 13, 15, 1, 6, 50];
+
       // 1-Write a function to find the largest element in an array.
-      var large = 0;
+
+      let large = 0;
       function largest() {
-        const arreyy = [10, 21, 1, 7];
-        for (var i = 0; i < arreyy.length; i++) {
-          if (arreyy[i] > large) {
-            large = arreyy[i];
+        for (let i = 0; i <= first_array.length; i++) {
+          if (first_array[i] > large) {
+            // console.log(large);
+            large = first_array[i];
+            // console.log(large);
           }
         }
-        console.log(large);
+        return large;
       }
       console.log(largest());
 
+      console.log("task2");
+
       // 2-Write a function to find the smallest element in an array.
-      var small = 0;
+
+      let small = first_array[0];
       function smallest() {
-        const arr1 = [5, 2, 1, 17];
-        for (var i = 0; i < arr1.length; i++) {
-          if (arr1[i] < small) {
-            small = arr1[i];
+        for (let i = 0; i <= first_array.length; i++) {
+          if (first_array[i] < small) {
+            small = first_array[i];
           }
         }
-        console.log(small);
+        return small;
       }
       console.log(smallest());
 
+      console.log("task 3");
+
       // 3-Write a function to find the sum of all elements in an array.
-      var sum0 = 0;
-      function Sum() {
-        const arr2 = [5, 2, 11, 7];
-        for (var i = 0; i < arr2.length; i++) {
-          sum0 = sum0 + arr2[i];
+
+      let thesum = 0;
+      console.log(thesum);
+      function sum_all() {
+        for (let i = 0; i < first_array.length; i++) {
+          thesum = thesum + first_array[i];
         }
-        console.log(sum0);
+        console.log(thesum);
       }
-      console.log(Sum());
+      console.log(sum_all());
+      console.log("task 4");
 
       // 4-Write a function to find the average of all elements in an array.
-      var sum00 = 0;
-      var avg = 1;
-      function Avg() {
-        const arr3 = [5, 2, 11, 7];
-        for (var i = 0; i < arr3.length; i++) {
-          sum00 = sum00 + arr3[i];
-          avg = sum00 / arr3.length;
+      let thesum2 = 0;
+      function average() {
+        for (let i = 0; i < first_array.length; i++) {
+          thesum2 = thesum2 + first_array[i];
         }
-        console.log("The sum of the array is " + " " + sum00);
-        console.log("The average of the array is " + " " + avg);
+        let theaverage = thesum2 / first_array.length;
+        return theaverage;
       }
-      console.log(Avg());
+      console.log(average());
+
+      console.log("task 4");
 
       // 5-Write a function to find the median of all elements in an array.
-      const arrr = [1, 3, 5, 7, 9];
-      var r;
+
+      //const first_array = [30, 13, 15, 1, 6, 50];
       function median() {
-        if (arrr.length % 2 == 1) {
-          r = arrr.length;
-          var med = r / 2 - 1;
-          console.log("The median is " + arrr[med]);
+        if (first_array.length % 2 == 0) {
+          let first_median = first_array[first_array.length / 2];
+          let second_median = first_array[first_array.length / 2 - 1];
+
+          console.log(first_median);
+          console.log(second_median);
+
+          let the_median = (first_median + second_median) / 2;
+          return the_median;
+        } else {
+          let the_median = first_array.length / 2 - 0.5;
+          console.log(the_median);
+          return first_array[the_median];
         }
       }
       console.log(median());
 
+      console.log("task 5");
+
       // 6-Write a function to remove all duplicates from an array.
+
+      const sec_array = [30, 13, 15, 1, 6, 1];
+
       function duplicates() {
-        const arrayy = [5, 2, 11, 7, 5];
-        if (
-          arrayy[0] == arrayy[1] ||
-          arrayy[0] == arrayy[2] ||
-          arrayy[0] == arrayy[3] ||
-          arrayy[0] == arrayy[4]
-        ) {
-          arrayy[0] = null;
-        } else if (
-          arrayy[1] == arrayy[0] ||
-          arrayy[1] == arrayy[2] ||
-          arrayy[1] == arrayy[3] ||
-          arrayy[1] == arrayy[4]
-        ) {
-          arrayy[1] = null;
-        } else if (
-          arrayy[2] == arrayy[0] ||
-          arrayy[2] == arrayy[1] ||
-          arrayy[2] == arrayy[3] ||
-          arrayy[2] == arrayy[4]
-        ) {
-          arrayy[2] = null;
-        } else if (
-          arrayy[3] == arrayy[0] ||
-          arrayy[3] == arrayy[1] ||
-          arrayy[3] == arrayy[2] ||
-          arrayy[3] == arrayy[4]
-        ) {
-          arrayy[3] = null;
+        const newarray = [];
+        for (let i = 0; i < sec_array.length; i++) {
+          if (
+            sec_array[i] == sec_array[i + 1] ||
+            sec_array[i] == sec_array[i + 2] ||
+            sec_array[i] == sec_array[i + 3] ||
+            sec_array[i] == sec_array[i + 4] ||
+            sec_array[i] == sec_array[i + 5]
+          ) {
+            console.log("the sec_array[" + i + "] is duplicated ");
+          } else {
+            newarray.push(sec_array[i]);
+            console.log(newarray);
+          }
         }
-
-        console.log(arrayy);
+        console.log(
+          "the final new undublicated array is" + "[" + newarray + "]"
+        );
       }
-      console.log(duplicates());
-      // 7-Write a function to sort an array in ascending order.
-      function ordre(list) {
-        var result = [3, 2, 7, 1, 8, 4];
 
-        for (i = 0; i < list.length; i++) {
-          for (j = 0; j < list.length; j++) {
-            if (list[i] > list[j + 1]) {
+      console.log(duplicates());
+      console.log("task 6 ");
+      console.log("PSA. فخورة بحل التاسك الي قبل  ");
+
+      // 7-Write a function to sort an array in ascending order.
+
+      const THIRD_array = [30, 13, 15, 2, 6, 1];
+
+      function ascending() {
+        const newarray2 = [...THIRD_array];
+
+        for (let i = 0; i < newarray2.length; i++) {
+          for (let x = 0; x < newarray2.length - 1; x++) {
+            if (newarray2[x] > newarray2[x + 1]) {
+              let A = newarray2[x];
+              newarray2[x] = newarray2[x + 1];
+              newarray2[x + 1] = A;
             }
           }
         }
 
-        console.log(result);
+        console.log("The final new ascending array is: [" + newarray2 + "]");
       }
 
-      ordre(nombres);
+      console.log(ascending());
     </script>
   </body>
 </html>
