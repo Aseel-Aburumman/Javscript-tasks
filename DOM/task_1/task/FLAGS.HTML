@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Flags</title>
+    <style>
+      #flag-container {
+        width: 400px;
+        height: 300px;
+        border: 1px solid #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <select id="country-select">
+      <option value="">--SELECT--</option>
+      <option value="Norway">Norway</option>
+      <option value="Sweden">Sweden</option>
+      <option value="Denmark">Denmark</option>
+    </select>
+
+    <div id="flag-container"></div>
+
+    <script>
+      const flagContainer = document.getElementById("flag-container");
+      const countrySelect = document.getElementById("country-select");
+
+      countrySelect.addEventListener("change", function () {
+        flagContainer.innerHTML = "";
+
+        const selectedCountry = countrySelect.value;
+
+        if (selectedCountry) {
+          const img = document.createElement("img");
+
+          img.src = getFlagURL(selectedCountry);
+
+          flagContainer.appendChild(img);
+        }
+      });
+
+      function getFlagURL(country) {
+        switch (country) {
+          case "Norway":
+            return "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg";
+          case "Sweden":
+            return "https://upload.wikimedia.org/wikipedia/en/4/4c/Flag_of_Sweden.svg";
+          case "Denmark":
+            return "https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Denmark.svg";
+          default:
+            return "";
+        }
+      }
+    </script>
+  </body>
+</html>
