@@ -9,13 +9,14 @@
         height: 100px;
         border: 1px solid black;
         margin-top: 10px;
+        /* default options */
         font-family: Arial;
         font-size: 12pt;
       }
     </style>
   </head>
   <body>
-    <form name="form" id="formatForm">
+    <form name="form">
       <select name="font_family" id="font_family">
         <option value="Arial" selected>Arial</option>
         <option value="Verdana">Verdana</option>
@@ -45,34 +46,64 @@
     <div id="text">The quick brown fox jumps over the lazy dog</div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const textDiv = document.getElementById("text");
-        const fontFamilySelect = document.getElementById("font_family");
-        const fontSizeSelect = document.getElementById("font_size");
-        const italicCheckbox = document.getElementById("font_italic");
-        const boldCheckbox = document.getElementById("font_bold");
-        const underlineCheckbox = document.getElementById("font_underline");
+      /*اول خطوة : نحدد اماكن الاشياء ونرمزها او نلقبها */
+      let fontFamiltSelected = document.getElementById("font_family");
+      let fontSizeSelected = document.getElementById("font_size");
+      let fontItalicCheck = document.getElementById("font_italic");
+      let fontBoldCheck = document.getElementById("font_bold");
+      let fontUnderLineCheck = document.getElementById("font_underline");
+      let thetext = document.getElementById("text");
 
-        function updateTextStyle() {
-          textDiv.style.fontFamily = fontFamilySelect.value;
-          textDiv.style.fontSize = fontSizeSelect.value;
-          textDiv.style.fontStyle = italicCheckbox.checked
-            ? "italic"
-            : "normal";
-          textDiv.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
-          textDiv.style.textDecoration = underlineCheckbox.checked
-            ? "underline"
-            : "none";
+      /*ثاني خطوة : نسمع للفورم شو بصير فيو , ونتبع اي تغيير عن طريق الايفينت ليسينر  ونطبق ايفينت معين 
+      للفورمز منستخدم ايفنت يسمى 
+      change */
+      fontFamiltSelected.addEventListener("change", fontFamilyUpdate);
+      fontSizeSelected.addEventListener("change", fontSizeUpdate);
+      fontItalicCheck.addEventListener("change", ItalicUpdate);
+      fontBoldCheck.addEventListener("change", BoldUpdate);
+      fontUnderLineCheck.addEventListener("change", underLineUpdate);
+
+      /*ثالث خطوة : بدنا نعرف الفنكشنز الي حتصير  */
+      function fontFamilyUpdate() {
+        /*dom with element style  */
+        /*العنصر الي حيتغير . ستايل . الخاصية = الفاليو   */
+        thetext.style.fontFamily = fontFamiltSelected.value;
+      }
+      function fontSizeUpdate() {
+        thetext.style.fontSize = fontSizeSelected.value;
+      }
+
+      /*للتشيك بوكس ما منحط فاليو منحط تشيك , ليه ؟  
+        الفاليو بتخبرنا بالقيمة او المقصد بس ما بتخهبرنا اذا هاد الخيار اختير 
+        بينما التشيك فهو بولين , يعني ترو او فولس */
+
+      function ItalicUpdate() {
+        thetext.style.fontStyle = fontItalicCheck.checked;
+        /*اوك هلا عنا القيمة ترو او فالس بس ما الها معنا
+         اذا ما حطيناها جوا مقارنة منطقية 
+        , لهيك منحتاج اف ستيتمن او Ternary Operator:*/
+        if (fontItalicCheck.checked) {
+          thetext.style.fontStyle = "italic";
+        } else {
+          thetext.style.fontStyle = "normal";
         }
-
-        fontFamilySelect.addEventListener("change", updateTextStyle);
-        fontSizeSelect.addEventListener("change", updateTextStyle);
-        italicCheckbox.addEventListener("change", updateTextStyle);
-        boldCheckbox.addEventListener("change", updateTextStyle);
-        underlineCheckbox.addEventListener("change", updateTextStyle);
-
-        updateTextStyle();
-      });
+      }
+      function BoldUpdate() {
+        thetext.style.fontWeight = fontBoldCheck.checked;
+        if (fontBoldCheck.checked) {
+          thetext.style.fontWeight = "bold";
+        } else {
+          thetext.style.fontWeight = "normal";
+        }
+      }
+      function underLineUpdate() {
+        thetext.style.textDecoration = fontUnderLineCheck.checked;
+        if (fontUnderLineCheck.checked) {
+          thetext.style.textDecoration = "underline";
+        } else {
+          thetext.style.textDecoration = "none";
+        }
+      }
     </script>
   </body>
 </html>

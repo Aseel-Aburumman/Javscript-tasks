@@ -34,31 +34,10 @@
         font-family: Verdana, sans-serif;
         font-size: 0.9em;
         color: #a9a9a9;
-        display: none;
       }
     </style>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const articles = document.querySelectorAll("article");
-
-        articles.forEach((article) => {
-          const showLink = article.querySelector(".showlink a");
-          const textDiv = article.querySelector(".text");
-          const hideLink = textDiv.querySelector("a");
-
-          showLink.addEventListener("click", function (event) {
-            event.preventDefault();
-            textDiv.style.display = "block";
-            showLink.parentElement.style.display = "none";
-          });
-
-          hideLink.addEventListener("click", function (event) {
-            event.preventDefault();
-            textDiv.style.display = "none";
-            showLink.parentElement.style.display = "block";
-          });
-        });
-      });
+      /* TODO this is for you to complete */
     </script>
   </head>
   <body>

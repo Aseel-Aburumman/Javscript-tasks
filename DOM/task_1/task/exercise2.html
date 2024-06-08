@@ -12,35 +12,32 @@
     </style>
     <script>
       /* TODO: write JS code here */
-      const colors = [
-        "LightCoral",
-        "LightSalmon",
-        "DarkRed",
-        "PapayaWhip",
-        "DarkKhaki",
-        "white",
-      ];
+      /*بما =انو الجافا بتحمل قبل الملف فلما يجي يطبق الفنكشن ما لاقى الdiv */
+      /* الحل نحط ايفينت يمشي بس الصفحة تتحمل زي الاسايمنت الي قبل  */
+      document.addEventListener("DOMContentLoaded", function () {
+        let colors = [
+          "LightCoral",
+          "LightSalmon",
+          "DarkRed",
+          "PapayaWhip",
+          "DarkKhaki",
+          "white",
+        ];
 
-      let currentIndex = 0;
+        let theLuckyBox = document.getElementById("mydiv");
+        let x = 0;
+        theLuckyBox.addEventListener("click", function () {
+          theLuckyBox.style.backgroundColor = colors[x];
+          x++;
 
-      function boxColor() {
-        const div = document.getElementById("mydiv");
-
-        div.style.backgroundColor = colors[currentIndex];
-
-        currentIndex++;
-
-        if (currentIndex >= colors.length) {
-          currentIndex = 0;
-        }
-      }
-
-      function textBoxColor() {
-        c;
-      }
+          if (x > colors.length) {
+            x = 0;
+          }
+        });
+      });
     </script>
   </head>
   <body>
-    <div onclick="boxColor()" id="mydiv"></div>
+    <div id="mydiv"></div>
   </body>
 </html>

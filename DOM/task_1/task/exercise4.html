@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>
-      Exercise #5: Input check for minimum number of characters should be 6 and
-      password match in both inputs
+      Exercise #5: Input check for minimmum number of charecter should be 6 and
+      password match in both input
     </title>
     <style>
       * {
@@ -17,40 +17,25 @@
       }
     </style>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const password1 = document.getElementById("password1");
-        const password2 = document.getElementById("password2");
-        const pw1Check = document.getElementById("pw1_check");
-        const pw2Check = document.getElementById("pw2_check");
-        const submitBtn = document.getElementById("submitBtn");
+      /* TODO: complete this part */
+      document.addEventListener("DOMContentLoaded", function thevalid() {
+        let theInputPass1 = document.getElementById("password1");
+        let errorpass1 = document.getElementById("pw1_check");
+        let theInputPass2 = document.getElementById("password2");
+        let errorpass2 = document.getElementById("pw2_check");
+        let thebtn = document.getElementById("submitBtn");
 
-        function validatePasswords() {
-          let valid = true;
+        theInputPass1.addEventListener("input", letsValidat);
+        theInputPass2.addEventListener("input", letsValidat);
 
-          pw1Check.textContent = "";
-          pw2Check.textContent = "";
-
-          if (password1.value.length < 6) {
-            pw1Check.textContent = "Password must be at least 6 characters.";
-            valid = false;
+        function letsValidat() {
+          if (theInputPass1.value.length < 6) {
+            errorpass1.innerHTML = "minimum number of characters should be 6";
           }
-
-          if (password1.value !== password2.value) {
-            pw2Check.textContent = "Passwords do not match.";
-            valid = false;
+          if (theInputPass2.value != theInputPass1.value) {
+            errorpass2.innerHTML = "passwords does not match ";
           }
-
-          return valid;
         }
-
-        password1.addEventListener("input", validatePasswords);
-        password2.addEventListener("input", validatePasswords);
-
-        submitBtn.addEventListener("click", function (event) {
-          if (!validatePasswords()) {
-            event.preventDefault();
-          }
-        });
       });
     </script>
   </head>
