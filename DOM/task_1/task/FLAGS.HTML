@@ -3,60 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Country Flags</title>
+    <title>select country and the flag will appear</title>
     <style>
-      #flag-container {
-        width: 400px;
-        height: 300px;
-        border: 1px solid #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      #theflag {
+        width: 300px;
+        height: 200px;
+        border: 1px solid black;
       }
       img {
         max-width: 100%;
         max-height: 100%;
+        object-fit: cover;
       }
     </style>
   </head>
   <body>
-    <select id="country-select">
-      <option value="">--SELECT--</option>
-      <option value="Norway">Norway</option>
-      <option value="Sweden">Sweden</option>
-      <option value="Denmark">Denmark</option>
-    </select>
+    <form action="">
+      <select name="country-select" id="country_select">
+        <option value="">select</option>
+        <option value="Jordan">Jordan</option>
+        <option value="palastine">palastine</option>
+        <option value="Iraq">Iraq</option>
+        <option value="SA">Suadi Arabia</option>
+      </select>
+    </form>
 
-    <div id="flag-container"></div>
+    <div id="theflag"></div>
 
     <script>
-      const flagContainer = document.getElementById("flag-container");
-      const countrySelect = document.getElementById("country-select");
+      let flagContainer = document.getElementById("theflag");
+      let optionContainer = document.getElementById("country_select");
+      let jordanflag =
+        "https://www.shutterstock.com/image-illustration/flat-design-flag-illustration-rounded-260nw-313916852.jpg";
+      let palastineflag =
+        "https://cdn11.bigcommerce.com/s-2lbnjvmw4d/images/stencil/1280x1280/products/3091/5350/palestineflag__90887.1623919760.jpg?c=2";
+      let Iraqflag =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_Iraq.svg/1280px-Flag_of_Iraq.svg.png";
+      let SAflag =
+        "https://cdn.britannica.com/79/5779-050-46C999AF/Flag-Saudi-Arabia.jpg";
 
-      countrySelect.addEventListener("change", function () {
-        flagContainer.innerHTML = "";
-
-        const selectedCountry = countrySelect.value;
-
-        if (selectedCountry) {
-          const img = document.createElement("img");
-
-          img.src = getFlagURL(selectedCountry);
-
-          flagContainer.appendChild(img);
+      optionContainer.addEventListener("change", thechosenone);
+      function thechosenone() {
+        let thechosenCountry = optionContainer.value;
+        if (thechosenCountry === "Jordan") {
+          flagContainer.innerHTML = `<img src="${jordanflag}" alt="Jordan Flag">`;
         }
-      });
-
-      function getFlagURL(country) {
-        switch (country) {
-          case "Norway":
-            return "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg";
-          case "Sweden":
-            return "https://upload.wikimedia.org/wikipedia/en/4/4c/Flag_of_Sweden.svg";
-          case "Denmark":
-            return "https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Denmark.svg";
-          default:
-            return "";
+        if (thechosenCountry === "palastine") {
+          flagContainer.innerHTML = `<img src="${palastineflag}">`;
+        }
+        if (thechosenCountry === "Iraq") {
+          flagContainer.innerHTML = `<img src="${Iraqflag}">`;
+        }
+        if (thechosenCountry === "SA") {
+          flagContainer.innerHTML = `<img src="${SAflag}">`;
         }
       }
     </script>

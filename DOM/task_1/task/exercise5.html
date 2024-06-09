@@ -38,6 +38,27 @@
     </style>
     <script>
       /* TODO this is for you to complete */
+      document.addEventListener("DOMContentLoaded", function () {
+        let articles = document.querySelectorAll("article");
+
+        articles.forEach(function hideAll(article) {
+          let textToHide = article.querySelector(".text"); /*كلاس النص */
+          let btnHide = textToHide.querySelector("a");
+          let btnShow = article.querySelector(".showlink a");
+
+          btnShow.addEventListener("click", function (event) {
+            event.preventDefault(); //اللينك فاضي , فعشان ما ينط لفوق
+            textToHide.style.display = "block";
+            btnShow.parentElement.style.display = "none";
+          });
+
+          btnHide.addEventListener("click", function (event) {
+            event.preventDefault(); //اللينك فاضي , فعشان ما ينط لفوق
+            textToHide.style.display = "none";
+            btnShow.parentElement.style.display = "block";
+          });
+        });
+      });
     </script>
   </head>
   <body>
