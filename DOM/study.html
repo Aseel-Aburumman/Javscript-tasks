@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>select country and the flag will appear</title>
+    <style>
+      #theflag {
+        width: 300px;
+        height: 200px;
+        border: 1px solid black;
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <select name="country-select" id="country_select">
+        <option value="">select</option>
+        <option value="Jordan">Jordan</option>
+        <option value="palastine">palastine</option>
+        <option value="Iraq">Iraq</option>
+        <option value="SA">Suadi Arabia</option>
+      </select>
+    </form>
+
+    <div id="theflag"></div>
+
+    <script>
+      let flagContainer = document.getElementById("theflag");
+      let optionContainer = document.getElementById("country_select");
+      let jordanflag =
+        "https://www.shutterstock.com/image-illustration/flat-design-flag-illustration-rounded-260nw-313916852.jpg";
+      let palastineflag =
+        "https://cdn11.bigcommerce.com/s-2lbnjvmw4d/images/stencil/1280x1280/products/3091/5350/palestineflag__90887.1623919760.jpg?c=2";
+      let Iraqflag =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_Iraq.svg/1280px-Flag_of_Iraq.svg.png";
+      let SAflag =
+        "https://cdn.britannica.com/79/5779-050-46C999AF/Flag-Saudi-Arabia.jpg";
+
+      optionContainer.addEventListener("change", thechosenone);
+      function thechosenone() {
+        let thechosenCountry = optionContainer.value;
+        if (thechosenCountry === "Jordan") {
+          flagContainer.innerHTML = `<img src="${jordanflag}" alt="Jordan Flag">`;
+        }
+        if (thechosenCountry === "palastine") {
+          flagContainer.innerHTML = `<img src="${palastineflag}">`;
+        }
+        if (thechosenCountry === "Iraq") {
+          flagContainer.innerHTML = `<img src="${Iraqflag}">`;
+        }
+        if (thechosenCountry === "SA") {
+          flagContainer.innerHTML = `<img src="${SAflag}">`;
+        }
+      }
+    </script>
+  </body>
+</html>
