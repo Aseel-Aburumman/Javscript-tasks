@@ -15,14 +15,18 @@
       integrity="sha384-3RoJImQ+Yz4jAyP6xW29kJhqJOE3rdjuu9wkNycjCuDnGAtC/crm79mLcwj1w2o/"
       crossorigin="anonymous"
     ></script>
+    <style>
+      .center-buttons {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
   </head>
   <body>
-
-
     <div class="d-flex justify-content-evenly">
-
-
-      <div style="width: 40%;height: 100%;">
+      <div style="width: 30%; height: 100%;">
         <div id="carouselExamplePause" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
             <div class="carousel-action-bar">
                 <div class="carousel-indicators">
@@ -39,7 +43,7 @@
                         preserveAspectRatio="xMidYMid slice" focusable="false">
                         <title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#4bb4e6" /><text x="50%" y="50%" fill="#000"
-                            dy=".3em"><img src="/orange/pic/orangepic1.jpg" alt="" style="height: 100vh;"></text>
+                            dy=".3em"><img src="/pic/orangepic1.jpg" alt="" style="height: 100vh;"></text>
                     </svg>
                 </div>
                 <div class="carousel-item">
@@ -48,7 +52,7 @@
                         preserveAspectRatio="xMidYMid slice" focusable="false">
                         <title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#50be87" /><text x="50%" y="50%" fill="#000"
-                            dy=".3em"><img src="/orange/pic/orangepic2.jpg" alt="" style="height: 100vh;"></text>
+                            dy=".3em"><img src="/pic/orangepic2.jpg" alt="" style="height: 100vh;"></text>
                     </svg>
                 </div>
             </div>
@@ -62,7 +66,7 @@
             <div class="navbar-brand me-auto">
               <a class="stretched-link" href="#">
                 <img
-                  src="/orange/pic/logo_orange.png"
+                  src="/pic/logo_orange.png"
                   width="50"
                   height="50"
                   alt="Boosted - Back to Home"
@@ -96,12 +100,27 @@
         <div class="mx-auto">
           <form id="theform" class="mx-auto">
             <div class="w-50 mb-3 mt-5 mx-auto">
+              <label for="exampleInputusername" class="w-50 form-label"
+                >User name *</label
+              >
+              <input
+                type="text"
+                class="w-100 form-control is-required"
+                id="exampleInputusername"
+                aria-describedby="usenameHelp"
+                required
+              />
+              <div id="usenameHelp" class="w-50 form-text">
+                eg.Ahmad Ali
+              </div>
+            </div>
+            <div class="w-50 mb-3 mt-2 mx-auto">
               <label for="exampleInputEmail1" class="w-50 form-label"
                 >Email address *</label
               >
               <input
                 type="email"
-                class="w-75 form-control is-required"
+                class="w-100 form-control is-required"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 required
@@ -116,7 +135,7 @@
               >
               <input
                 type="number"
-                class="w-75 form-control"
+                class="w-100 form-control"
                 id="exampleInputmobile"
                 required
               />
@@ -128,7 +147,7 @@
               >
               <input
                 type="password"
-                class="w-75 form-control is-required"
+                class="w-100 form-control is-required"
                 id="exampleInputPassword1"
                 required
               />
@@ -136,14 +155,28 @@
                 The Password should be between 6-18 characters.
               </div>
             </div>
+            <div class="mx-auto w-50 mb-3">
+              <label for="exampleInputPassword2" class="w-50 form-label"
+                >Confirm Password *</label
+              >
+              <input
+                type="password"
+                class="w-100 form-control is-required"
+                id="exampleInputPassword2"
+                required
+              />
+              <div id="passHelp2" class="w-50 form-text">
+                The Password should match the previous feild.
+              </div>
+            </div>
             <div class="mx-auto w-50 mb-3 form-check is-required">
               <input
                 type="checkbox"
-                class="  form-check-input"
+                class="form-check-input"
                 id="exampleCheck1"
                 required
               />
-              <label class=" w-50 form-check-label" for="exampleCheck1"
+              <label class="w-50 form-check-label" for="exampleCheck1"
                 >I agree to the terms & conditions Orange.
               </label>
             </div>
@@ -151,16 +184,15 @@
               <input
                 type="checkbox"
                 class="form-check-input"
-                id="exampleCheck1"
+                id="exampleCheck2"
               />
-              <label class="w-50 form-check-label" for="exampleCheck1"
+              <label class="w-100 form-check-label" for="exampleCheck2"
                 >Receive Coding Academy Newsletter.</label
               >
             </div>
-            <div class="mx-auto">
-                <button id="submitBtn" type="submit" class="mx-auto w-25 btn btn-primary mt-2">Sign Up</button
-                ><br />
-                <button type="submit" class="mx-auto w-25 btn border btn-default mt-2">
+            <div class="center-buttons mx-auto">
+                <button id="submitBtn" type="submit" class="w-50 btn btn-primary mt-2">Sign Up</button><br />
+                <button type="submit" class="w-50 btn border btn-default mt-2">
                   <a href="orangesignin.html" target="_blank">Already have an account? login</a>
                 </button>
             </div>
@@ -170,6 +202,5 @@
     </div>
 
     <script src="orange.js"></script>
-
   </body>
 </html>
