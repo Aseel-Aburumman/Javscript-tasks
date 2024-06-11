@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css" />
+  </head>
+  <body>
+    <div class="product-list">
+      <div class="product" data-id="1" data-price="900">
+        <img
+          src="https://images.macrumors.com/t/rVFMv95D6F0qtw436lHIuu0-p4I=/1600x/article-new/2020/10/iphone-13-models.jpg"
+          alt="iPhone 13 Pro"
+        />
+        <p>iPhone 13 Pro</p>
+        <p>900jd</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product" data-id="2" data-price="150">
+        <img
+          src="https://cdn.mos.cms.futurecdn.net/JcTkkafu6X9GPCiZ28k7RV-1200-80.jpg"
+          alt="Headset"
+        />
+        <p>Headset</p>
+        <p>150jd</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product" data-id="3" data-price="60">
+        <img
+          src="https://m.media-amazon.com/images/I/71yGtauB-AL._AC_SL1500_.jpg"
+          alt="Keyboard"
+        />
+        <p>Keyboard</p>
+        <p>60jd</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="cart">
+      <h2>Cart</h2>
+      <div class="cart-items"></div>
+      <div class="total">Total: <span id="total-price">0</span>jd</div>
+      <button class="save">Save</button>
+    </div>
+
+    <script src="cart.js"></script>
+  </body>
+</html>
