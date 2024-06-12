@@ -1,50 +1,85 @@
 let theresult = document.getElementById("theresult");
-let number1 = document.getElementById("number1");
-let number2 = document.getElementById("number2");
-let number3 = document.getElementById("number3");
-let number4 = document.getElementById("number4");
-let number5 = document.getElementById("number5");
-let number6 = document.getElementById("number6");
-let number7 = document.getElementById("number7");
-let number8 = document.getElementById("number8");
-let number9 = document.getElementById("number9");
-let number0 = document.getElementById("number0");
-let thesum = document.getElementById("thesum");
-let thesub = document.getElementById("thesub");
-let multi = document.getElementById("multi");
-let reset = document.getElementById("reset");
-let theEqual = document.getElementById("theEqual");
-let thedivision = document.getElementById("thedivision");
+let buttons = document.querySelectorAll("input[type=button]");
+let operators = ["+", "-", "*", "/"];
+let currentInput = "";
+let currentOperator = "";
+let previousInput = "";
+let resultDisplayed = false;
 
-number1.addEventListener("click", () => thediplayscreen("1"));
-number2.addEventListener("click", () => thediplayscreen("2"));
-number3.addEventListener("click", () => thediplayscreen("3"));
-number4.addEventListener("click", () => thediplayscreen("4"));
-number5.addEventListener("click", () => thediplayscreen("5"));
-number6.addEventListener("click", () => thediplayscreen("6"));
-number7.addEventListener("click", () => thediplayscreen("7"));
-number8.addEventListener("click", () => thediplayscreen("8"));
-number9.addEventListener("click", () => thediplayscreen("9"));
-number0.addEventListener("click", () => thediplayscreen("0"));
-thesum.addEventListener("click", () => thediplayscreen("+"));
-thesub.addEventListener("click", () => thediplayscreen("-"));
-multi.addEventListener("click", () => thediplayscreen("*"));
-thedivision.addEventListener("click", () => thediplayscreen("/"));
-theEqual.addEventListener("click", calculate);
-reset.addEventListener("click", cleardisply);
+buttons.forEach((button) => {
+  button.addEventListener("click", () => handleButtonClick(button.value));
+});
 
-function thediplayscreen(input) {
-  theresult.value += input;
+function handleButtonClick(value) {
+  if (value === "C") {
+    clearDisplay();
+  } else if (value === "=") {
+    calculate();
+  } else if (operators.includes(value)) {
+    handleOperator(value);
+  } else {
+    handleNumber(value);
+  }
 }
 
-function cleardisply() {
-  theresult.value = "";
+function handleNumber(value) {
+  if (resultDisplayed) {
+    clearDisplay();
+    resultDisplayed = false;
+  }
+  currentInput += value;
+  updateDisplay(currentInput);
+}
+
+function handleOperator(value) {
+  if (currentInput === "" && previousInput === "") {
+    return;
+  }
+  if (currentInput !== "") {
+    if (previousInput !== "") {
+      calculate();
+    } else {
+      previousInput = currentInput;
+      currentInput = "";
+    }
+  }
+  currentOperator = value;
 }
 
 function calculate() {
-  try {
-    theresult.value = eval(theresult.value);
-  } catch (e) {
-    theresult.value = "Error";
+  if (currentInput === "" || previousInput === "") {
+    return;
   }
+  let result;
+  let prev = parseFloat(previousInput);
+  let curr = parseFloat(currentInput);
+  switch (currentOperator) {
+    case "+":
+      result = prev + curr;
+      break;
+    case "-":
+      result = prev - curr;
+      break;
+    case "*":
+      result = prev * curr;
+      break;
+    case "/":
+      result = prev / curr;
+      break;
+  }
+  updateDisplay(result);
+  previousInput = result.toString();
+  currentInput = "";
+  resultDisplayed = true;
+}
+
+function clearDisplay() {
+  currentInput = "";
+  previousInput = "";
+  currentOperator = "";
+  theresult.value = "";
+}
+
+function updateDisplay(value) {
+  theresult.value = value;
 }
