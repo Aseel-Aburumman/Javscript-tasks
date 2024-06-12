@@ -1,81 +1,85 @@
-/* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    justify-items: center;
-    padding: 20px;
-    background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  padding: 20px;
+  background-color: #f2f2f2;
 }
 
 .product-list {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .product {
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #fff;
-    text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  text-align: center;
+  height: 20rem;
+  border-radius: 15px;
 }
 
 .product img {
-    width: 30%;
-    height: 40%;
+  width: 80%;
+  height: 50%;
 }
 
 .product button {
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
 .cart {
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #fff;
-    width: 50%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  width: 50%;
+  border-radius: 15px;
+  text-align: center;
 }
 
 .cart-items {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .cart-item img {
-    width: 50px;
-    height: auto;
+  width: 50px;
+  height: auto;
 }
 
 .cart-item button {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
 .total {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 .save {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
