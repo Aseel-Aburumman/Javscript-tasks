@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax Task 1</title>
+    <style>
+      .result {
+        display: flex;
+        align-items: center;
+      }
+      .comment-box {
+        border: 1px solid #000;
+        padding: 10px;
+        margin-top: 10px;
+        width: 300px;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>AJAX Request with Javascript</h1>
+    <input type="text" id="Comment" name="Comment" />
+    <button type="button" id="sendCommentButton">Send Comment</button>
+    <div class="result">
+      <h1>Get Comment:</h1>
+      <h2 id="thePlaceHold"></h2>
+    </div>
+    <div id="commentsContainer"></div>
+
+    <script>
+      document.getElementById("Comment").addEventListener("input", function () {
+        var comment = document.getElementById("Comment").value;
+        document.getElementById("thePlaceHold").innerText = comment;
+      });
+
+      document
+        .getElementById("sendCommentButton")
+        .addEventListener("click", function () {
+          var comment = document.getElementById("Comment").value;
+
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "https://jsonplaceholder.typicode.com/posts", true);
+          xhr.setRequestHeader(
+            "Content-type",
+            "application/json; charset=UTF-8"
+          );
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 201) {
+              var data = JSON.parse(xhr.responseText);
+
+              var commentBox = document.createElement("div");
+              commentBox.className = "comment-box";
+              commentBox.innerText = data.title;
+
+              document
+                .getElementById("commentsContainer")
+                .appendChild(commentBox);
+
+              document.getElementById("Comment").value = "";
+              document.getElementById("thePlaceHold").innerText = "";
+            }
+          };
+
+          var payload = JSON.stringify({
+            title: comment,
+            body: comment,
+            userId: 1,
+          });
+
+          xhr.send(payload);
+        });
+    </script>
+  </body>
+</html>
